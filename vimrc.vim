@@ -1,14 +1,15 @@
 syntax on
 
-set ts=2  " tabstop :  <tab> 간격.
-set sts=2  "softtabstop
-set sw=2  " shiftwidth :  자동 들여쓰기 간격.
+" Expand tab to 2 spaces
+set tabstop=2
+set softtabstop=2
+set expandtab
+set shiftwidth=2
+set smarttab
 
 set ai  " autoindent :  자동 들여쓰기.
 set ci  " cindent :  C 자동 들여쓰기.
 set si  " smartindent :  자동 들여쓰기.(뭐가 다른지는 모르겠음)
-
-set et  " expandtab : <tab> 을 space 로.
 
 set backspace=2  " 삽입 모드에서 backspace 계속 허용한다.
 
@@ -26,41 +27,14 @@ set paste  " 붙여넣기시 계단 현상 제거
 set title  " 타이틀바에 현재 편집중인 파일을 표시한다.
 set ruler  " 상태표시줄에 커서 위치를 보여준다.
 
-set statusline=%h%F%m%r%=[%l:%c(%p%%)]  " 상태표시줄 포맷팅
-
-set guifont=Lucida_Sans_Typewriter:h12:cHANGEUL
-
-"colo default
 colo desert
 
 "-----vim show number of line-----
 set nu
 
 "-----UTF-8 Change-----
-
 set encoding=UTF-8
 set fileencodings=UTF-8
-
-" VIM-LATEX
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
 
 " Vundle
 set nocompatible              " be iMproved, required
@@ -74,6 +48,12 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+" vimawesome ranking order
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
