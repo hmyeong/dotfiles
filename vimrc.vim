@@ -1,43 +1,8 @@
-syntax on
-
-" Expand tab to 2 spaces
-set tabstop=2
-set softtabstop=2
-set expandtab
-set shiftwidth=2
-set smarttab
-
-set ai  " autoindent :  자동 들여쓰기.
-set ci  " cindent :  C 자동 들여쓰기.
-set si  " smartindent :  자동 들여쓰기.(뭐가 다른지는 모르겠음)
-
-set backspace=2  " 삽입 모드에서 backspace 계속 허용한다.
-
-set background=dark  " 화면 배경을 어둡게
-
-set incsearch  " 점진적으로 찾아준다.
-
-set aw  "autowrite :  :next 나 :make 같은 명령으로 자동 저장한다.
-
-set hlsearch  " 검색어 강조 기능
-set showmatch  " (), {} 에서 닫는 괄호를 입력할 때 일치하는 괄호 보여줌
-
-set paste  " 붙여넣기시 계단 현상 제거
-
-set title  " 타이틀바에 현재 편집중인 파일을 표시한다.
-set ruler  " 상태표시줄에 커서 위치를 보여준다.
-
-colo desert
-
-"-----vim show number of line-----
-set nu
-
-"-----UTF-8 Change-----
-set encoding=UTF-8
-set fileencodings=UTF-8
+" You want Vim, not vi. When Vim finds a vimrc, 'nocompatible' is set anyway.
+" We set it explicitely to make our position clear!
+set nocompatible
 
 " Vundle
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -53,13 +18,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -69,3 +30,63 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+" Minimal vimrc
+filetype plugin indent on  " Load plugins according to detected filetype.
+syntax on                  " Enable syntax highlighting.
+
+set autoindent             " Indent according to previous line.
+set expandtab              " Use spaces instead of tabs.
+set softtabstop =2         " Tab key indents by 4 spaces.
+set shiftwidth  =2         " >> indents by 4 spaces.
+set shiftround             " >> indents to next multiple of 'shiftwidth'.
+
+set backspace   =indent,eol,start  " Make backspace work as you would expect.
+set hidden                 " Switch between buffers without having to save first.
+set laststatus  =2         " Always show statusline.
+set display     =lastline  " Show as much as possible of the last line.
+
+set showmode               " Show current mode in command-line.
+set showcmd                " Show already typed keys when more are expected.
+
+set incsearch              " Highlight while searching with / or ?.
+set hlsearch               " Keep matches highlighted.
+
+set ttyfast                " Faster redrawing.
+set lazyredraw             " Only redraw when necessary.
+
+set splitbelow             " Open new windows below the current window.
+set splitright             " Open new windows right of the current window.
+
+"set cursorline             " Find the current line quickly.
+set wrapscan               " Searches wrap around end-of-file.
+set report      =0         " Always report changed lines.
+set synmaxcol   =200       " Only highlight the first 200 columns.
+
+"set listchars =tab:>,extends:>,precedes:<,nbsp:.
+set list                   " Show non-printable characters.
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+else
+  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+endif
+
+" Put all temporary files under the same directory.
+" https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
+set backup
+set backupdir   =$HOME/.vim/files/backup/
+set backupext   =-vimbackup
+set backupskip  =
+set directory   =$HOME/.vim/files/swap/
+set updatecount =100
+set undofile
+set undodir     =$HOME/.vim/files/undo/
+set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+
+" Heesoo
+colo desert                " colorscheme
+
+set number                 " Precede each line with its line number
+set encoding=UTF-8
+set fileencodings=UTF-8
+
