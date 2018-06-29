@@ -6,8 +6,13 @@ set nocompatible
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has('win32')
+  set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+  call vundle#begin('$USERPROFILE/vimfiles/bundle')
+else
+  set rtp+=$HOME/.vim/bundle/Vundle.vim
+  call vundle#begin()
+endif
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -73,20 +78,40 @@ endif
 
 " Put all temporary files under the same directory.
 " https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
-set backup
-set backupdir   =$HOME/.vim/files/backup/
-set backupext   =-vimbackup
-set backupskip  =
-set directory   =$HOME/.vim/files/swap/
-set updatecount =100
-set undofile
-set undodir     =$HOME/.vim/files/undo/
-set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+if has('win32')
+  set backup
+  set backupdir   =$HOME/vimfiles/files/backup/
+  set backupext   =-vimbackup
+  set backupskip  =
+  set directory   =$HOME/vimfiles/files/swap/
+  set updatecount =100
+  set undofile
+  set undodir     =$HOME/vimfiles/files/undo/
+  set viminfo     ='100,n$HOME/vimfiles/files/info/viminfo
+else
+  set backup
+  set backupdir   =$HOME/.vim/files/backup/
+  set backupext   =-vimbackup
+  set backupskip  =
+  set directory   =$HOME/.vim/files/swap/
+  set updatecount =100
+  set undofile
+  set undodir     =$HOME/.vim/files/undo/
+  set viminfo     ='100,n$HOME/.vim/files/info/viminfo
+endif
 
 " Heesoo
 colo desert                " colorscheme
 
 set number                 " Precede each line with its line number
-set encoding=UTF-8
+
+if has('win32')
+  set encoding=korea
+else
+  set encoding=UTF-8
+endif
+
 set fileencodings=UTF-8
+
+set guifont=Lucida_Sans_Typewriter:h12:cHANGEUL
 
