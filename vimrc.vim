@@ -68,12 +68,11 @@ set wrapscan               " Searches wrap around end-of-file.
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
 
-"set listchars =tab:>,extends:>,precedes:<,nbsp:.
-set list                   " Show non-printable characters.
+set nolist                 " Do not show non-printable characters.
 if has('multi_byte') && &encoding ==# 'utf-8'
-  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
+  let &listchars = 'eol:$,tab:▸ ,extends:❯,precedes:❮,nbsp:±'
 else
-  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
+  let &listchars = 'eol:$,tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
 " Put all temporary files under the same directory.
