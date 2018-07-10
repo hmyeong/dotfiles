@@ -1,5 +1,5 @@
 
-if filereadable(expand("~/dotfiles/vimrc.vim"))
-  source ~/dotfiles/vimrc.vim
+if filereadable(expand("$HOME/dotfiles/vimrc.vim"))
+  source $HOME/dotfiles/vimrc.vim
 endif
 
