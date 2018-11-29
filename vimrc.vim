@@ -6,8 +6,13 @@ set nocompatible
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has('win32')
+  set rtp+=$USERPROFILE/.vim/bundle/Vundle.vim " Should not in network drive
+  call vundle#begin('$USERPROFILE/.vim/bundle')
+else
+  set rtp+=$HOME/.vim/bundle/Vundle.vim
+  call vundle#begin()
+endif
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
