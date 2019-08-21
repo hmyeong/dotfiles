@@ -1,0 +1,28 @@
+{
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "files.autoSave": "onWindowChange",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    // git
+    "git.ignoreLimitWarning": true,
+    // python
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--generated-members=torch.*"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--generated-members=torch.*"
+    ],
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "120"
+    ],
+    // IntelliCode Python support
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+}
