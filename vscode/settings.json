@@ -16,13 +16,12 @@
     "python.linting.flake8Args": [
         "--generated-members=torch.*"
     ],
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "yapf",
     "python.formatting.blackArgs": [
         "--line-length",
         "120"
     ],
-    // IntelliCode Python support
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.jediEnabled": false,
+    "python.formatting.yapfArgs": [
+        "--style={ based_on_style: pep8, indent_width: 4, column_limit: 120, }"
+    ],
 }
