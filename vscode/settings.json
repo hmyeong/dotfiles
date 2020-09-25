@@ -16,7 +16,7 @@
     "python.linting.flake8Args": [
         "--generated-members=torch.*"
     ],
-    "python.formatting.provider": "yapf",
+    "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length",
         "120"
