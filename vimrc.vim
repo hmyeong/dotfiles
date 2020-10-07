@@ -7,8 +7,8 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 if has('win32')
-  set rtp+=$USERPROFILE/.vim/bundle/Vundle.vim " Should not in network drive
-  call vundle#begin('$USERPROFILE/.vim/bundle')
+  set rtp+=$USERPROFILE/vimfiles/bundle/Vundle.vim " Should not in network drive
+  call vundle#begin('$USERPROFILE/vimfiles/bundle')
 else
   set rtp+=$HOME/.vim/bundle/Vundle.vim
   call vundle#begin()
